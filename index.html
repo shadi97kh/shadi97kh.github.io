@@ -29,6 +29,7 @@
         box-shadow: 2px 0 5px rgba(0,0,0,0.1);
         color: #fff;
       }
+
       .menu a {
         display: block;
         width: 100%;
@@ -42,6 +43,7 @@
         border-radius: 8px;
         transition: 0.3s ease;
       }
+
       .menu a:hover {
         background-color: #444;
         border: 2px solid #fff;
@@ -79,8 +81,10 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       }
 
-      .contact-info p {
+      /* Ensure Description and Links are displayed properly */
+      .contact-info {
         font-size: 16px;
+        max-width: 70%; /* To make sure it doesn't overlap with the image */
       }
 
       .greeting {
@@ -88,9 +92,25 @@
         font-weight: bold;
       }
 
+      /* Ensure Image Thumbnails are not too large */
+      .education-img {
+        width: 60px; /* Adjust thumbnail size */
+        height: 60px;
+        margin-right: 20px;
+        object-fit: contain; /* Ensures proper aspect ratio */
+      }
+
+      /* Add spacing between list items */
       ul li {
         margin-bottom: 20px;
       }
+
+      /* Ensure images scale appropriately */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
     </style>
   </head>
 
@@ -112,8 +132,9 @@
         <div class="profile-section">
           <div class="contact-info">
             <h1 class="greeting">Hello, This is Shadi Khodagholi!</h1>
-            <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida...</p>
+            <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My current research interests lie in federated learning and computer vision, particularly focusing on applications in healthcare systems. I am passionate about using these technologies to improve medical imaging and diagnostics, and I aim to contribute to advancements in healthcare through my work in these fields. My background includes a Bachelor’s in Computer Engineering, with a solid foundation in machine learning and object detection.</p>
             <p>Contact: <a href="mailto:zahra.khodagholi@ucf.edu">zahra.khodagholi@ucf.edu</a></p>
+            <p><a href="data/Zahra_Kh_CV (1).pdf">Download CV</a> | <a href="https://github.com/shadi97kh/">GitHub</a> | <a href="https://www.linkedin.com/in/shadi97kh/">LinkedIn</a></p>
           </div>
           <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
         </div>
