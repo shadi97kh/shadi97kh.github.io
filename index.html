@@ -46,9 +46,15 @@
         border-bottom: 2px solid #ddd;
         padding-bottom: 10px;
       }
+      .profile-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       .profile-img {
         border-radius: 50%;
-        width: 150px;
+        width: 200px;
+        margin-left: 30px;
       }
     </style>
   </head>
@@ -56,7 +62,6 @@
   <body>
     <!-- Menu -->
     <div class="menu">
-      <h3>Menu</h3>
       <a href="#home">Home</a>
       <a href="#papers">Papers</a>
       <a href="#projects">Projects</a>
@@ -67,11 +72,15 @@
     <div class="content">
       <!-- Home Section -->
       <section id="home" class="section">
-        <h2>About Me</h2>
-        <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
-        <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My research focuses on federated learning and computer vision with a particular interest in healthcare systems. I have a background in machine learning, medical imaging, and object detection.</p>
-        <p>Contact: <a href="mailto:zahra.khodagholi@ucf.edu">zahra.khodagholi@ucf.edu</a></p>
-        <p><a href="data/Zahra_Kh_CV (1).pdf">Download CV</a> | <a href="https://github.com/shadi97kh/">GitHub</a> | <a href="https://www.linkedin.com/in/shadi97kh/">LinkedIn</a></p>
+        <div class="profile-section">
+          <div>
+            <h2>About Me</h2>
+            <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My research focuses on federated learning and computer vision with a particular interest in healthcare systems. I have a background in machine learning, medical imaging, and object detection.</p>
+            <p>Contact: <a href="mailto:zahra.khodagholi@ucf.edu">zahra.khodagholi@ucf.edu</a></p>
+            <p><a href="data/Zahra_Kh_CV (1).pdf">Download CV</a> | <a href="https://github.com/shadi97kh/">GitHub</a> | <a href="https://www.linkedin.com/in/shadi97kh/">LinkedIn</a></p>
+          </div>
+          <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
+        </div>
       </section>
 
       <!-- Papers Section -->
@@ -87,9 +96,11 @@
       <section id="projects" class="section">
         <h2>Projects</h2>
         <ul>
-          <li><strong>Breast Cancer Segmentation</strong> - Ongoing, UCF. Working on segmentation of breast cancer images using UNET and MONAI on the TIGER dataset.</li>
-          <li><strong>Object Detection using ResNet</strong> - Bachelor’s thesis, focused on training the COCO dataset with ResNet for object detection.</li>
-          <li><strong>Branch Prediction Using CNNs</strong> - Designed a CNN-based branch predictor to improve prediction accuracy, implemented Gshare and bimodal predictors.</li>
+          <li><strong>Breast Cancer Segmentation</strong> - Ongoing research at UCF utilizing the UNET architecture and MONAI on the TIGER dataset. The project focuses on improving segmentation accuracy for early detection and treatment of breast cancer.</li>
+
+          <li><strong>Object Detection using ResNet</strong> - Bachelor's thesis project, where the COCO dataset was trained using ResNet architecture. This project developed a pipeline for detecting multiple objects, with a focus on improving accuracy and training speed using pre-trained models.</li>
+
+          <li><strong>Branch Prediction Using CNNs</strong> - Designed a branch predictor using Convolutional Neural Networks (CNNs) to enhance prediction accuracy. This project involved implementing traditional branch predictors such as Gshare and bimodal predictors alongside CNN-based architectures for more accurate branch outcomes in computer architecture simulations.</li>
         </ul>
       </section>
 
@@ -97,8 +108,9 @@
       <section id="internships" class="section">
         <h2>Internships</h2>
         <ul>
-          <li><strong>Machine Learning Intern at ToobaTech (2019 - 2020)</strong> - Worked on applying machine learning algorithms like Linear Regression, K-means clustering, and Random Forest.</li>
-          <li><strong>COVID-19 Diagnosis in Children (2021)</strong> - Remote internship at Boston University. Conducted image segmentation to diagnose COVID-19 in children's lungs.</li>
+          <li><strong>Machine Learning Intern at ToobaTech (2019 - 2020)</strong> - I worked as a machine learning intern where I applied algorithms such as Linear Regression, K-means clustering, and Random Forest on real-world datasets. My role included optimizing models for performance and providing business insights based on data analysis.</li>
+
+          <li><strong>COVID-19 Diagnosis in Children (2021), Boston University</strong> - I contributed to a remote medical imaging project where I implemented image segmentation algorithms to detect COVID-19 infection in children's lungs. This work helped automate the diagnostic process and improve the accuracy of infection tracking in medical imaging.</li>
         </ul>
       </section>
     </div>
