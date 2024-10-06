@@ -1,635 +1,106 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Zahra(Shadi) Khodagholi</title>
-
+    <meta charset="UTF-8">
+    <title>Zahra (Shadi) Khodagholi</title>
     <meta name="author" content="Shadi Khodagholi">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .menu {
+        width: 20%;
+        background-color: #f4f4f4;
+        padding: 15px;
+        height: 100vh;
+        position: fixed;
+      }
+      .menu a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .menu a:hover {
+        background-color: #ddd;
+      }
+      .content {
+        margin-left: 20%;
+        padding: 20px;
+        width: 80%;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      h2 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+      .profile-img {
+        border-radius: 50%;
+        width: 150px;
+      }
+    </style>
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Shadi Khodagholi
-                </p>
-                <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My current research interests lie in federated learning and computer vision, particularly focusing on applications in healthcare systems. I am passionate about using these technologies to improve medical imaging and diagnostics, and I aim to contribute to advancements in healthcare through my work in these fields. My background includes a Master’s in Computer Science and a Bachelor’s in Computer Engineering, with a solid foundation in machine learning and object detection.
-                </p>
-                <p style="text-align:center">
-                  <a href="mailto:zahra.khodagholi@ucf.edu">Email</a> &nbsp;/&nbsp;
-                  <a href="data/Zahra_Kh_CV (1).pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/shadi97kh/">Github</a>
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/shadi97kh.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/shadi97kh.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <!-- Menu -->
+    <div class="menu">
+      <h3>Menu</h3>
+      <a href="#home">Home</a>
+      <a href="#papers">Papers</a>
+      <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
+    </div>
 
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Home Section -->
+      <section id="home" class="section">
+        <h2>About Me</h2>
+        <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
+        <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My research focuses on federated learning and computer vision with a particular interest in healthcare systems. I have a background in machine learning, medical imaging, and object detection.</p>
+        <p>Contact: <a href="mailto:zahra.khodagholi@ucf.edu">zahra.khodagholi@ucf.edu</a></p>
+        <p><a href="data/Zahra_Kh_CV (1).pdf">Download CV</a> | <a href="https://github.com/shadi97kh/">GitHub</a> | <a href="https://www.linkedin.com/in/shadi97kh/">LinkedIn</a></p>
+      </section>
 
-    <tr onmouseout="cat3d_stop()" onmouseover="cat3d_start()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='cat3d_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/cat3d.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/cat3d.jpg' width="160">
-        </div>
-        <script type="text/javascript">
-          function cat3d_start() {
-            document.getElementById('cat3d_image').style.opacity = "1";
-          }
+      <!-- Papers Section -->
+      <section id="papers" class="section">
+        <h2>Papers</h2>
+        <ul>
+          <li><strong>ULTRA-AIR: Ultrasound Landmark Tracking for Real-time Anatomical Airway Identification</strong> - Accepted at IEEE Body Sensor Networks, 2024</li>
+          <li><strong>Federated Learning Framework for Autism Classification in Video Data</strong> - In preparation, 2024</li>
+        </ul>
+      </section>
 
-          function cat3d_stop() {
-            document.getElementById('cat3d_image').style.opacity = "0";
-          }
-          cat3d_stop()
-        </script>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://cat3d.github.io/">
-			<span class="papertitle">CAT3D: Create Anything in 3D with Multi-View Diffusion Models
-</span>
-        </a>
-        <br>
-				<a href="https://ruiqigao.github.io/">Ruiqi Gao</a>*,
-        <a href="https://holynski.org/">Aleksander Holynski</a>*, 
-        <a href="https://henzler.github.io/">Philipp Henzler</a>,
-        <a href="https://github.com/ArthurBrussee">Arthur Brussee</a>, 
-				<a href="http://ricardomartinbrualla.com/">Ricardo Martin Brualla</a>, 
-        <a href="https://pratulsrinivasan.github.io/">Pratul P. Srinivasan</a>,
-				<strong>Jonathan T. Barron</strong>,
-        <a href="https://poolio.github.io/">Ben Poole</a>*
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>Breast Cancer Segmentation</strong> - Ongoing, UCF. Working on segmentation of breast cancer images using UNET and MONAI on the TIGER dataset.</li>
+          <li><strong>Object Detection using ResNet</strong> - Bachelor’s thesis, focused on training the COCO dataset with ResNet for object detection.</li>
+          <li><strong>Branch Prediction Using CNNs</strong> - Designed a CNN-based branch predictor to improve prediction accuracy, implemented Gshare and bimodal predictors.</li>
+        </ul>
+      </section>
 
-        <br>
-        <em>NeurIPS</em>, 2024 &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
-        <br>
-        <a href="https://cat3d.github.io/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2405.10314">arXiv</a>
-        <p></p>
-        <p>
-				A single model built around diffusion and NeRF that does text-to-3D, image-to-3D, and few-view reconstruction, trains in 1 minute, and renders at 60FPS in a browser.
-        </p>
-      </td>
-    </tr>
-      
-
-            <tr onmouseout="portrait_stop()" onmouseover="portrait_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='portrait_image'><img src='images/portrait_after.jpg'></div>
-                  <img src='images/portrait_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function portrait_start() {
-                    document.getElementById('portrait_image').style.opacity = "1";
-                  }
-
-                  function portrait_stop() {
-                    document.getElementById('portrait_image').style.opacity = "0";
-                  }
-                  portrait_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/13i6DlS9UhGVKmwslLUFnKBwdxFRVQeQj/view?usp=sharing">
-                  <span class="papertitle">Synthetic Depth-of-Field with a Single-Camera Mobile Phone</span>
-                </a>
-                <br>
-                <a href="http://nealwadhwa.com">Neal Wadhwa</a>,
-                <a href="http://rahuldotgarg.appspot.com/">Rahul Garg</a>,
-                <a href="http://graphics.stanford.edu/~dejacobs/">David E. Jacobs</a>, Bryan E. Feldman, Nori Kanazawa, Robert Carroll,
-                <a href="http://www.cs.cmu.edu/~ymovshov/">Yair Movshovitz-Attias</a>,
-                <strong>Jonathan T. Barron</strong>, Yael Pritch,
-                <a href="http://graphics.stanford.edu/~levoy/">Marc Levoy</a>
-                <br>
-                <em>SIGGRAPH</em>, 2018
-                <br>
-                <a href="https://arxiv.org/abs/1806.04171">arxiv</a> /
-                <a href="https://ai.googleblog.com/2017/10/portrait-mode-on-pixel-2-and-pixel-2-xl.html">blog post</a> /
-                <a href="data/Wadhwa2018.bib">bibtex</a>
-                <p></p>
-                <p>Dual pixel cameras and semantic segmentation algorithms can be used for shallow depth of field effects.</p>
-                <p>This system is the basis for "Portrait Mode" on the Google Pixel 2 smartphones</p>
-              </td>
-            </tr>
-
-
-            <tr onmouseout="deepburst_stop()" onmouseover="deepburst_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='deepburst_image'><img src='images/deepburst_after.png'></div>
-                  <img src='images/deepburst_before.png'>
-                </div>
-                <script type="text/javascript">
-                  function deepburst_start() {
-                    document.getElementById('deepburst_image').style.opacity = "1";
-                  }
-
-                  function deepburst_stop() {
-                    document.getElementById('deepburst_image').style.opacity = "0";
-                  }
-                  deepburst_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1GAH8ijyZ7GnoBnQFANEzdXinHrE4vvXn/view?usp=sharing">
-                  <span class="papertitle">Burst Denoising with Kernel Prediction Networks</span>
-                </a>
-                <br>
-                <a href="https://bmild.github.io/">Ben Mildenhall</a>,
-                <strong>Jonathan T. Barron</strong>,
-                <a href="http://people.csail.mit.edu/jiawen/">Jiawen Chen</a>,
-                <a href="http://www.dsharlet.com/">Dillon Sharlet</a>,
-                <a href="http://graphics.stanford.edu/~renng/">Ren Ng</a>, Robert Carroll
-                <br>
-                <em>CVPR</em>, 2018 &nbsp <font color=#FF8080><strong>(Spotlight)</strong></font>
-                <br>
-                <a href="https://drive.google.com/file/d/1aqk3Q-L2spjLZh2yRWKUWIDcZkGjQ7US/view?usp=sharing">supplement</a> /
-                <a href="https://github.com/google/burst-denoising">code</a> /
-                <a href="data/Mildenhall2018.bib">bibtex</a>
-                <p></p>
-                <p>We train a network to predict linear kernels that denoise noisy bursts from cellphone cameras.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="friendly_stop()" onmouseover="friendly_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='friendly_image'><img src='images/friendly_after.png'></div>
-                  <img src='images/friendly_before.png'>
-                </div>
-                <script type="text/javascript">
-                  function friendly_start() {
-                    document.getElementById('friendly_image').style.opacity = "1";
-                  }
-
-                  function friendly_stop() {
-                    document.getElementById('friendly_image').style.opacity = "0";
-                  }
-                  friendly_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1w_0djhL0QgC_fbehnJ0c-J23_kW_420p/view?usp=sharing">
-                  <span class="papertitle">A Hardware-Friendly Bilateral Solver for Real-Time Virtual Reality Video</span>
-                </a>
-                <br>
-                <a href="https://homes.cs.washington.edu/~amrita/">Amrita Mazumdar</a>, <a href="http://homes.cs.washington.edu/~armin/">Armin Alaghi</a>, <strong>Jonathan T. Barron</strong>, <a href="https://www.cs.unc.edu/~gallup/">David Gallup</a>, <a href="https://homes.cs.washington.edu/~luisceze/">Luis Ceze</a>, <a href="https://homes.cs.washington.edu/~oskin/">Mark Oskin</a>, <a href="http://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a>
-                <br>
-                <em>High-Performance Graphics (HPG)</em>, 2017
-                <br>
-                <a href="https://sampa.cs.washington.edu/projects/vr-hw.html">project page</a>
-                <p></p>
-                <p>A reformulation of the bilateral solver can be implemented efficiently on GPUs and FPGAs.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="hdrnet_stop()" onmouseover="hdrnet_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='hdrnet_image'><img src='images/hdrnet_after.jpg'></div>
-                  <img src='images/hdrnet_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function hdrnet_start() {
-                    document.getElementById('hdrnet_image').style.opacity = "1";
-                  }
-
-                  function hdrnet_stop() {
-                    document.getElementById('hdrnet_image').style.opacity = "0";
-                  }
-                  hdrnet_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1jQY3CTMnLX7PeGUzYLso9H1eCsZyWbwg/view?usp=sharing">
-                  <span class="papertitle">Deep Bilateral Learning for Real-Time Image Enhancement</span>
-                </a>
-                <br>
-                <a href="http://www.mgharbi.com">Micha&euml;l Gharbi</a>, <a href="http://people.csail.mit.edu/jiawen/">Jiawen Chen</a>, <strong>Jonathan T. Barron</strong>, <a href="https://people.csail.mit.edu/hasinoff/">Samuel W. Hasinoff</a>, <a href="http://people.csail.mit.edu/fredo/">Fr&eacute;do Durand </a>
-                <br>
-                <em>SIGGRAPH</em>, 2017
-                <br>
-                <a href="https://groups.csail.mit.edu/graphics/hdrnet/">project page</a> /
-                <a href="https://www.youtube.com/watch?v=GAe0qKKQY_I">video</a> /
-                <a href="data/GharbiSIGGRAPH2017.bib">bibtex</a> /
-                <a href="http://news.mit.edu/2017/automatic-image-retouching-phone-0802">p</a><a href="https://www.wired.com/story/googles-new-algorithm-perfects-photos-before-you-even-take-them/">r</a><a href="https://petapixel.com/2017/08/02/new-ai-can-retouch-photos-snap/">e</a><a href="https://www.theverge.com/2017/8/2/16082272/google-mit-retouch-photos-machine-learning">s</a><a href="http://gizmodo.com/clever-camera-app-uses-deep-learning-to-perfectly-retou-1797474282">s</a>
-                <p></p>
-                <p>By training a deep network in bilateral space we can learn a model for high-resolution and real-time image enhancement.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="ffcc_stop()" onmouseover="ffcc_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='ffcc_image'><img src='images/ffcc_after.jpg'></div>
-                  <img src='images/ffcc_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function ffcc_start() {
-                    document.getElementById('ffcc_image').style.opacity = "1";
-                  }
-
-                  function ffcc_stop() {
-                    document.getElementById('ffcc_image').style.opacity = "0";
-                  }
-                  ffcc_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/1611.07596">
-                  <span class="papertitle">Fast Fourier Color Constancy</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>,
-                <a href="https://ai.google/research/people/105312/">Yun-Ta Tsai</a>,
-                <br>
-                <em>CVPR</em>, 2017
-                <br>
-                <a href="https://youtu.be/rZCXSfl13rY">video</a> /
-                <a href="data/BarronTsaiCVPR2017.bib">bibtex</a> /
-                <a href="https://github.com/google/ffcc">code</a> /
-                <a href="https://drive.google.com/open?id=0B4nuwEMaEsnmWkJQMlFPSFNzbEk">output</a> /
-                <a href="https://blog.google/products/photos/six-tips-make-your-photos-pop/">blog post</a> /
-                <a href="https://9to5google.com/2017/03/03/google-photos-auto-white-balance/">p</a><a href="https://www.engadget.com/2017/03/03/google-photos-automatically-fixes-your-pictures-white-balance/">r</a><a href="https://lifehacker.com/google-photos-will-now-automatically-adjust-the-white-b-1793009155">e</a><a href="https://petapixel.com/2017/03/06/google-photos-will-now-automatically-white-balance-snapshots/">s</a><a href="http://www.theverge.com/2017/3/3/14800062/google-photos-auto-white-balance-android">s</a>
-                <p></p>
-                <p>Color space can be aliased, allowing white balance models to be learned and evaluated in the frequency domain. This improves accuracy by 13-20% and speed by 250-3000x.</p>
-                <p>This technology is used by <a href="https://store.google.com/product/pixel_compare">Google Pixel</a>, <a href="https://photos.google.com/">Google Photos</a>, and <a href="https://www.google.com/maps">Google Maps</a>.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="hdrp_stop()" onmouseover="hdrp_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='hdrp_image'><img src='images/hdrp_after.jpg'></div>
-                  <img src='images/hdrp_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function hdrp_start() {
-                    document.getElementById('hdrp_image').style.opacity = "1";
-                  }
-
-                  function hdrp_stop() {
-                    document.getElementById('hdrp_image').style.opacity = "0";
-                  }
-                  hdrp_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1SSSmVHWbMQ7sZMOredSVWVJXbXobkyzA/view?usp=sharing">
-                  <span class="papertitle">Burst Photography for High Dynamic Range and Low-Light Imaging on Mobile Cameras</span>
-                </a>
-                <br>
-                <a href="http://people.csail.mit.edu/hasinoff/">Samuel W. Hasinoff</a>, <a href="http://www.dsharlet.com/">Dillon Sharlet</a>, <a href="http://www.geisswerks.com/">Ryan Geiss</a>, <a href="http://people.csail.mit.edu/abadams/">Andrew Adams</a>, <strong>Jonathan T. Barron</strong>, Florian Kainz, <a href="http://people.csail.mit.edu/jiawen/">Jiawen Chen</a>, <a href="http://graphics.stanford.edu/~levoy/">Marc Levoy</a>
-                <br>
-                <em>SIGGRAPH Asia</em>, 2016
-                <br>
-                <a href="http://hdrplusdata.org/">project page</a> /
-                <a href="https://drive.google.com/open?id=15EUuSDi1BtHUgQCaiooVrD44qYKIC3vx">supplement</a> /
-                <a href="data/Hasinoff2016.bib">bibtex</a>
-                <p></p>
-                <p>Mobile phones can take beautiful photographs in low-light or high dynamic range environments by aligning and merging a burst of images.</p>
-                <p>This technology is used by the <a href="https://research.googleblog.com/2014/10/hdr-low-light-and-high-dynamic-range.html">Nexus HDR+</a> feature.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="bs_stop()" onmouseover="bs_start()" bgcolor="#ffffd0">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='bs_image'><img src='images/BS_after.jpg'></div>
-                  <img src='images/BS_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function bs_start() {
-                    document.getElementById('bs_image').style.opacity = "1";
-                  }
-
-                  function bs_stop() {
-                    document.getElementById('bs_image').style.opacity = "0";
-                  }
-                  bs_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1zFzCaFwkGK1EGmJ_KEqb-ZsRJhfUKN2S/view?usp=sharing">
-                  <span class="papertitle">The Fast Bilateral Solver</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>,
-                <a href="https://cs.stanford.edu/~poole/">Ben Poole</a>
-                <br>
-                <em>ECCV</em>, 2016 &nbsp <font color="red"><strong>(Oral Presentation, Best Paper Honorable Mention)</strong></font>
-                <br>
-                <a href="http://arxiv.org/abs/1511.03296">arXiv</a> /
-                <a href="data/BarronPooleECCV2016.bib">bibtex</a> /
-                <a href="http://videolectures.net/eccv2016_barron_bilateral_solver/">video (they messed up my slides, use &rarr;)</a> /
-                <a href="https://drive.google.com/file/d/19x1AeN0PFus6Pjrd8nR-vCmJ6bNEefsC/view?usp=sharing">keynote</a> (or <a href="https://drive.google.com/file/d/1p9nduiymK9jUh7WfwlsMjBfW8RoNe_61/view?usp=sharing">PDF</a>) /
-                <a href="https://github.com/poolio/bilateral_solver">code</a> /
-                <a href="https://drive.google.com/file/d/0B4nuwEMaEsnmaDI3bm5VeDRxams/view?usp=sharing&resourcekey=0-pmkbnOuy8caA7-3GGSfeNQ">depth super-res results</a> /
-                <a href="data/BarronPooleECCV2016_reviews.txt">reviews</a>
-                <p></p>
-                <p>Our solver smooths things better than other filters and faster than other optimization algorithms, and you can backprop through it.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="diverdi_stop()" onmouseover="diverdi_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='diverdi_image'><img src='images/diverdi_after.jpg'></div>
-                  <img src='images/diverdi_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function diverdi_start() {
-                    document.getElementById('diverdi_image').style.opacity = "1";
-                  }
-
-                  function diverdi_stop() {
-                    document.getElementById('diverdi_image').style.opacity = "0";
-                  }
-                  diverdi_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1mmT-LuK_eBZsl3qp4-fAshEPdgfbgvNE/view?usp=sharing">
-                  <span class="papertitle">Geometric Calibration for Mobile, Stereo, Autofocus Cameras</span>
-                </a>
-                <br>
-                <a href="http://www.stephendiverdi.com/">Stephen DiVerdi</a>,
-                <strong>Jonathan T. Barron</strong>
-                <br>
-                <em>WACV</em>, 2016
-                <br>
-                <a href="data/Diverdi2016.bib">bibtex</a>
-                <p></p>
-                <p>Standard techniques for stereo calibration don't work for cheap mobile cameras.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="dt_stop()" onmouseover="dt_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='dt_image'><img src='images/DT_edge.jpg'></div>
-                  <img src='images/DT_image.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function dt_start() {
-                    document.getElementById('dt_image').style.opacity = "1";
-                  }
-
-                  function dt_stop() {
-                    document.getElementById('dt_image').style.opacity = "0";
-                  }
-                  dt_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/178Xj2PZ1w6hZJpucU-TiZOoCemJmvsVQ/view?usp=sharing">
-                  <span class="papertitle">Semantic Image Segmentation with Task-Specific Edge Detection Using CNNs and a Discriminatively Trained Domain Transform</span>
-                </a>
-                <br>
-                <em>CVPR</em>, 2016
-                <br>
-                <a href="http://liangchiehchen.com/">Liang-Chieh Chen</a>, <strong>Jonathan T. Barron</strong>, <a href="http://ttic.uchicago.edu/~gpapan/">George Papandreou</a>, <a href="http://www.cs.ubc.ca/~murphyk/">Kevin Murphy</a>, <a href="http://www.stat.ucla.edu/~yuille/">Alan L. Yuille</a>
-                <br>
-                <a href="data/Chen2016.bib">bibtex</a> /
-                <a href="http://liangchiehchen.com/projects/DeepLab.html">project page</a> /
-                <a href="https://bitbucket.org/aquariusjay/deeplab-public-ver2">code</a>
-                <p></p>
-                <p>By integrating an edge-aware filter into a convolutional neural network we can learn an edge-detector while improving semantic segmentation.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="ccc_stop()" onmouseover="ccc_start()" bgcolor="#ffffd0">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div class="one">
-                  <div class="two" id='ccc_image'><img src='images/ccc_after.jpg'></div>
-                  <img src='images/ccc_before.jpg'>
-                </div>
-                <script type="text/javascript">
-                  function ccc_start() {
-                    document.getElementById('ccc_image').style.opacity = "1";
-                  }
-
-                  function ccc_stop() {
-                    document.getElementById('ccc_image').style.opacity = "0";
-                  }
-                  ccc_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1id74VNDL8ACrrWf6vYgN2M4kS8gd4n7w/view?usp=sharing">
-                  <span class="papertitle">Convolutional Color Constancy</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>
-                <br>
-                <em>ICCV</em>, 2015
-                <br>
-                <a href="https://drive.google.com/file/d/1vO3sVOMihmpNqsuASeR46Y_iME0lOANR/view?usp=sharing">supplement</a> / <a href="data/BarronICCV2015.bib">bibtex</a> / <a href="https://youtu.be/saHwKY9rfx0">video</a> (or <a href="https://drive.google.com/file/d/0B4nuwEMaEsnmalBNUzlENUJSVDg/view?usp=sharing">mp4</a>)
-                <p></p>
-                <p>By framing white balance as a chroma localization task we can discriminatively learn a color constancy model that beats the state-of-the-art by 40%.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src='images/Shelhamer2015.jpg'>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1stygV71uBruD7Ck9CaAQr7nREvr3DtUL/view?usp=sharing">
-                  <span class="papertitle">Scene Intrinsics and Depth from a Single Image</span>
-                </a>
-                <br>
-                <a href="http://imaginarynumber.net/">Evan Shelhamer</a>, <strong>Jonathan T. Barron</strong>, <a href="http://www.eecs.berkeley.edu/%7Etrevor/">Trevor Darrell</a>
-                <br>
-                <em>ICCV Workshop</em>, 2015
-                <br>
-                <a href="data/Shelhamer2015.bib">bibtex</a>
-                <p></p>
-                <p>The monocular depth estimates produced by fully convolutional networks can be used to inform intrinsic image estimation.</p>
-              </td>
-            </tr>
-
-            <tr bgcolor="#ffffd0" onmouseout="defocus_stop()" onmouseover="defocus_start()">
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <div id='lens_blurry' class='hidden'><img src="images/BarronCVPR2015_anim.gif"></div>
-                <div id='lens_sharp'>
-                  <a href="images/BarronCVPR2015_anim.gif"><img src="images/BarronCVPR2015_still.jpg"></a>
-                </div>
-                <script type="text/javascript">
-                  function defocus_start() {
-                    document.getElementById('lens_blurry').style.display = 'inline';
-                    document.getElementById('lens_sharp').style.display = 'none';
-                  }
-
-                  function defocus_stop() {
-                    document.getElementById('lens_blurry').style.display = 'none';
-                    document.getElementById('lens_sharp').style.display = 'inline';
-                  }
-                  defocus_stop()
-                </script>
-              </td>
-              <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="https://drive.google.com/file/d/1R4RdaBZIs-uJobhIFs9yKf3jIsaHQNH0/view?usp=sharing">
-                  <span class="papertitle">Fast Bilateral-Space Stereo for Synthetic Defocus</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://people.csail.mit.edu/abadams/">Andrew Adams</a>, <a href="http://people.csail.mit.edu/yichangshih/">YiChang Shih</a>, <a href="http://carlos-hernandez.org/">Carlos Hern&aacutendez</a>
-                <br>
-                <em>CVPR</em>, 2015 &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
-                <br>
-                <a href="https://drive.google.com/file/d/125qgMdqeT1vojMIijIKcOF099LjUgUOL/view?usp=sharing">abstract</a> /
-                <a href="https://drive.google.com/file/d/1HGGvVOGxmPjvgdK5q3UD1Qb5Nttg6kq9/view?usp=sharing">supplement</a> /
-                <a href="data/BarronCVPR2015.bib">bibtex</a> /
-                <a href="http://techtalks.tv/talks/fast-bilateral-space-stereo-for-synthetic-defocus/61624/">talk</a> /
-                <a href="https://drive.google.com/file/d/0B4nuwEMaEsnmSzZZdUJSMllSUkE/view?usp=sharing">keynote</a> (or <a href="https://drive.google.com/open?id=0B4nuwEMaEsnmZ1ZXUzBCWDJYeFU">PDF</a>)
-                <p></p>
-                <p>By embedding a stereo optimization problem in "bilateral-space" we can very quickly solve for an edge-aware depth map, letting us render beautiful depth-of-field effects.</p>
-                <p>This technology is used by the <a href="http://googleresearch.blogspot.com/2014/04/lens-blur-in-new-google-camera-app.html">Google Camera "Lens Blur"</a> feature. </p>
-              </td>
-            </tr>
-
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/prl.jpg" alt="prl" width="160" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://drive.google.com/file/d/13rVuJpcytRdLYCnKpq46g7B7IzSrPQ2P/view?usp=sharing">
-                  <span class="papertitle">Parallelizing Reinforcement Learning</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://www.eecs.berkeley.edu/~dsg/">Dave Golland</a>, <a href="http://www.cs.berkeley.edu/~nickjhay/">Nicholas J. Hay</a>
-                <br>
-                <em>Technical Report</em>, 2009
-                <br>
-                <a href="data/BarronPRL2009.bib">bibtex</a>
-                <p>Markov Decision Problems which lie in a low-dimensional latent space can be decomposed, allowing modified RL algorithms to run orders of magnitude faster in parallel.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/bd_promo.jpg" alt="blind-date" width="160" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://drive.google.com/file/d/1PQjzKgFcrAesMIDJr-WDlCwuGUxZJZwO/view?usp=sharing">
-                  <span class="papertitle">Blind Date: Using Proper Motions to Determine the Ages of Historical Images</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://cosmo.nyu.edu/hogg/">David W. Hogg</a>, <a href="http://www.astro.princeton.edu/~dstn/">Dustin Lang</a>, <a href="http://cs.nyu.edu/~roweis/">Sam Roweis</a>
-                <br>
-                <em>The Astronomical Journal</em>, 136, 2008
-                <p>Using the relative motions of stars we can accurately estimate the date of origin of historical astronomical images.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/clean_promo.jpg" alt="clean-usnob" width="160" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://drive.google.com/file/d/1YvRx-4hrZoCk-nl6OgVJZlHAqOiN5hWq/view?usp=sharing">
-                  <span class="papertitle">Cleaning the USNO-B Catalog Through Automatic Detection of Optical Artifacts</span>
-                </a>
-                <br>
-                <strong>Jonathan T. Barron</strong>, <a href="http://stumm.ca/">Christopher Stumm</a>, <a href="http://cosmo.nyu.edu/hogg/">David W. Hogg</a>, <a href="http://www.astro.princeton.edu/~dstn/">Dustin Lang</a>, <a href="http://cs.nyu.edu/~roweis/">Sam Roweis</a>
-                <br>
-                <em>The Astronomical Journal</em>, 135, 2008
-                <p>We use computer vision techniques to identify and remove diffraction spikes and reflection halos in the USNO-B Catalog.</p>
-                <p>In use at <a href="http://www.astrometry.net">Astrometry.net</a></p>
-              </td>
-            </tr>
-
-          </tbody></table>
-
-          
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-            <tr>
-              <td>
-                <h2>Miscellanea</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-            
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/cvf.jpg"></td>
-              <td width="75%" valign="center">
-                <a href="https://cvpr.thecvf.com/Conferences/2024/Organizers">Area Chair, CVPR 2024</a>
-                <br>
-                <a href="https://cvpr2023.thecvf.com/Conferences/2023/Organizers">Demo Chair, CVPR 2023</a>
-                <br>
-                <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-                <br>
-                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
-                <br>
-                <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
-                <br>
-                <a href="http://cvpr2018.thecvf.com/organizers/area_chairs">Area Chair, CVPR 2018</a>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/cs188.jpg" alt="cs188">
-              </td>
-              <td width="75%" valign="center">
-                <a href="http://inst.eecs.berkeley.edu/~cs188/sp11/announcements.html">Graduate Student Instructor, CS188 Spring 2011</a>
-                <br>
-                <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">Graduate Student Instructor, CS188 Fall 2010</a>
-                <br>
-                <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
-              </td>
-            </tr>
-            
-
-            <tr>
-              <td align="center" style="padding:20px;width:25%;vertical-align:middle">
-                <h2>Basically <br> Blog Posts</h2>
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
-                <br>
-                <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
-                <br>
-                <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
-                <br>
-                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars & Big Models: How Can Academics Adapt?</a>
-              </td>
-            </tr></tbody></table>
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-                <td style="padding:0px">
-                  <br>
-                  
-                </td>
-              </tr>
-            </tbody></table>
-          
-        </td>
-      </tr>
-    </table>
+      <!-- Internships Section -->
+      <section id="internships" class="section">
+        <h2>Internships</h2>
+        <ul>
+          <li><strong>Machine Learning Intern at ToobaTech (2019 - 2020)</strong> - Worked on applying machine learning algorithms like Linear Regression, K-means clustering, and Random Forest.</li>
+          <li><strong>COVID-19 Diagnosis in Children (2021)</strong> - Remote internship at Boston University. Conducted image segmentation to diagnose COVID-19 in children's lungs.</li>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
