@@ -84,7 +84,7 @@
       /* Ensure Description and Links are displayed properly */
       .contact-info {
         font-size: 16px;
-        max-width: 70%; /* To make sure it doesn't overlap with the image */
+        max-width: 70%;
       }
 
       .greeting {
@@ -94,10 +94,17 @@
 
       /* Ensure Image Thumbnails are not too large */
       .education-img {
-        width: 60px; /* Adjust thumbnail size */
+        width: 60px;
         height: 60px;
         margin-right: 20px;
-        object-fit: contain; /* Ensures proper aspect ratio */
+        object-fit: contain;
+        float: left;
+      }
+
+      .education-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
       }
 
       /* Add spacing between list items */
@@ -122,7 +129,7 @@
       <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
       <a href="#papers"><i class="fas fa-file-alt"></i> Papers</a>
       <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
-      <a href="#internships"><i class="fas fa-briefcase"></i> Internships</a>
+      <a href="#experiences"><i class="fas fa-briefcase"></i> Experiences</a>
     </div>
 
     <!-- Main Content -->
@@ -189,15 +196,15 @@
         </ul>
       </section>
 
-      <!-- Internships Section -->
-      <section id="internships" class="section">
-        <h2>Internships</h2>
+      <!-- Experiences Section -->
+      <section id="experiences" class="section">
+        <h2>Experiences</h2>
         <ul>
-          <li><strong>Machine Learning Intern at ToobaTech (August 2019 - July 2020)</strong> - I worked as a machine learning intern where I applied algorithms such as Linear Regression, K-means clustering, and Random Forest on real-world datasets. My role included optimizing models for performance and providing business insights based on data analysis.</li>
-
-          <li><strong>COVID-19 Diagnosis in Children (July - December 2021), Boston University</strong> - I contributed to a remote medical imaging project where I implemented image segmentation algorithms to detect COVID-19 infection in children's lungs. This work helped automate the diagnostic process and improve the accuracy of infection tracking in medical imaging.</li>
+          <li><strong>Teaching Assistant (January 2023 - Present)</strong> - I am currently serving as a teaching assistant at the University of Central Florida, where I assist in undergraduate and graduate courses focused on machine learning and computer vision.</li>
+          <li><strong>Research Assistant (September 2022 - Present)</strong> - Working on federated learning and its applications in healthcare systems, particularly in medical imaging, under theproject of medical imaging diagnostics, focusing on federated learning models and their reliability through uncertainty quantification, under the supervision of esteemed professors.</li>
         </ul>
       </section>
+
     </div>
   </body>
 </html>
