@@ -14,6 +14,7 @@
         padding: 0;
         display: flex;
         background-color: #f9f9f9;
+        scroll-behavior: smooth;
       }
 
       /* Menu Styling */
@@ -124,6 +125,35 @@
         scroll-behavior: smooth;
       }
 
+      /* Responsive Layout for smaller screens */
+      @media screen and (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .menu {
+          width: 100%;
+          height: auto;
+          position: relative;
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+        .menu a {
+          font-size: 14px;
+          padding: 10px;
+        }
+
+        .content {
+          margin-left: 0;
+          width: 100%;
+          padding: 20px;
+        }
+
+        .profile-img {
+          width: 250px;
+        }
+      }
     </style>
   </head>
 
