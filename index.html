@@ -153,11 +153,11 @@
         }
 
         .contact-thumbnails a {
-          position: relative;
-          display: inline-block;
-        }
+    position: relative;
+    display: inline-block;
+  }
 
-      /* Tooltip styling */
+  /* Tooltip styling */
   .contact-thumbnails a:hover::after {
     content: attr(data-title); /* Text from data-title attribute */
     position: absolute;
@@ -172,13 +172,14 @@
     font-size: 14px;
     opacity: 1;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease-in, transform 0.1s ease-in;
   }
 
   /* Initial state of tooltip (hidden) */
   .contact-thumbnails a::after {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(10px); /* Slightly below the icon to create a flash effect */
+    transition: opacity 0.1s ease-in, transform 0.1s ease-in;
   }
 
       }
