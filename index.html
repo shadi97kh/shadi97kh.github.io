@@ -83,6 +83,7 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       }
 
+      /* Ensure Description and Links are displayed properly */
       .contact-info {
         font-size: 16px;
         max-width: 70%;
@@ -93,34 +94,42 @@
         font-weight: bold;
       }
 
-      .education-img {
-        width: 60px;
-        height: 60px;
-        margin-right: 20px;
-        object-fit: contain;
-        float: left;
+      /* Icon Styling */
+      .contact-thumbnails a {
+        position: relative;
+        display: inline-block;
+        margin-right: 15px;
       }
 
-      .education-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
+      /* Tooltip Styling */
+      .contact-thumbnails a:hover::after {
+        content: attr(data-title); /* Tooltip text from data-title attribute */
+        position: absolute;
+        bottom: -30px; /* Adjust position */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        opacity: 1;
+        pointer-events: none;
+        z-index: 10;
+        transition: opacity 0.3s ease;
       }
 
-      /* Add spacing between list items */
-      ul li {
-        margin-bottom: 20px;
+      /* Initial state of tooltip (hidden) */
+      .contact-thumbnails a::after {
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
-      /* Ensure images scale appropriately */
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      /* Smooth scroll behavior for transitions */
-      html {
-        scroll-behavior: smooth;
+      /* Show tooltip on hover */
+      .contact-thumbnails a:hover::after {
+        opacity: 1;
       }
 
       /* Responsive Layout for smaller screens */
@@ -151,37 +160,6 @@
         .profile-img {
           width: 250px;
         }
-
-        .contact-thumbnails a {
-    position: relative;
-    display: inline-block;
-  }
-
-  /* Tooltip styling */
-  .contact-thumbnails a:hover::after {
-    content: attr(data-title); /* Text from data-title attribute */
-    position: absolute;
-    bottom: 50px; /* Position above the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    font-size: 14px;
-    opacity: 1;
-    pointer-events: none;
-    transition: opacity 0.1s ease-in, transform 0.1s ease-in;
-  }
-
-  /* Initial state of tooltip (hidden) */
-  .contact-thumbnails a::after {
-    opacity: 0;
-    transform: translateY(10px); /* Slightly below the icon to create a flash effect */
-    transition: opacity 0.1s ease-in, transform 0.1s ease-in;
-  }
-
       }
     </style>
   </head>
@@ -208,10 +186,10 @@
             <p>I am a Ph.D. student pursuing Computer Science at the University of Central Florida. My current research interests lie in federated learning and computer vision, particularly focusing on applications in healthcare systems. I am passionate about using these technologies to improve medical imaging and diagnostics, and I aim to contribute to advancements in healthcare through my work in these fields. My background includes a Bachelor’s in Computer Engineering, with a solid foundation in machine learning and object detection.</p>
           
             <div class="contact-thumbnails">
-              <a href="mailto:zahra.khodagholi@ucf.edu" data-title="Email"><img src="images/email.png" alt="Email" style="width: 40px; margin-right: 15px;"></a>
-              <a href="data/Zahra_Kh_CV.pdf" data-title="Download CV"><img src="images/resume.png" alt="CV" style="width: 40px; margin-right: 15px;"></a>
-              <a href="https://github.com/shadi97kh/" data-title="GitHub"><img src="images/github.png" alt="GitHub" style="width: 40px; margin-right: 15px;"></a>
-              <a href="https://www.linkedin.com/in/shadi97kh/" data-title="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn" style="width: 40px; margin-right: 15px;"></a>
+              <a href="mailto:zahra.khodagholi@ucf.edu" data-title="Email"><img src="images/email.png" alt="Email" style="width: 40px;"></a>
+              <a href="data/Zahra_Kh_CV.pdf" data-title="Download CV"><img src="images/resume.png" alt="CV" style="width: 40px;"></a>
+              <a href="https://github.com/shadi97kh/" data-title="GitHub"><img src="images/github.png" alt="GitHub" style="width: 40px;"></a>
+              <a href="https://www.linkedin.com/in/shadi97kh/" data-title="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn" style="width: 40px;"></a>
             </div>
           </div>
           <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
