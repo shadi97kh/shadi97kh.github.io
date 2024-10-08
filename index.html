@@ -83,7 +83,6 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       }
 
-      /* Ensure Description and Links are displayed properly */
       .contact-info {
         font-size: 16px;
         max-width: 70%;
@@ -94,7 +93,6 @@
         font-weight: bold;
       }
 
-      /* Ensure Image Thumbnails are not too large */
       .education-img {
         width: 60px;
         height: 60px;
@@ -160,28 +158,29 @@
         }
 
       /* Tooltip styling */
-      .contact-thumbnails a:hover::after {
-      content: attr(data-title); /* Text from data-title attribute */
-      position: absolute;
-      bottom: 50px; /* Position above the icon */
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      white-space: nowrap;
-      font-size: 14px;
-      opacity: 1;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      }
+  .contact-thumbnails a:hover::after {
+    content: attr(data-title); /* Text from data-title attribute */
+    position: absolute;
+    bottom: 50px; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
-      /* Initial state of tooltip (hidden) */
-    .contact-thumbnails a::after {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      }
+  /* Initial state of tooltip (hidden) */
+  .contact-thumbnails a::after {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
       }
     </style>
   </head>
@@ -209,9 +208,9 @@
           
             <div class="contact-thumbnails">
               <a href="mailto:zahra.khodagholi@ucf.edu" data-title="Email"><img src="images/email.png" alt="Email" style="width: 40px; margin-right: 15px;"></a>
-              <a href="data/Zahra_Kh_CV.pdf"><img src="images/resume.png" alt="CV" style="width: 40px; margin-right: 15px;"></a>
-              <a href="https://github.com/shadi97kh/"><img src="images/github.png" alt="GitHub" style="width: 40px; margin-right: 15px;"></a>
-              <a href="https://www.linkedin.com/in/shadi97kh/"><img src="images/linkedin.png" alt="LinkedIn" style="width: 40px; margin-right: 15px;"></a>
+              <a href="data/Zahra_Kh_CV.pdf" data-title="Download CV"><img src="images/resume.png" alt="CV" style="width: 40px; margin-right: 15px;"></a>
+              <a href="https://github.com/shadi97kh/" data-title="GitHub"><img src="images/github.png" alt="GitHub" style="width: 40px; margin-right: 15px;"></a>
+              <a href="https://www.linkedin.com/in/shadi97kh/" data-title="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn" style="width: 40px; margin-right: 15px;"></a>
             </div>
           </div>
           <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
