@@ -159,34 +159,55 @@
       }
 
       /* Responsive Layout for smaller screens */
-      @media screen and (max-width: 768px) {
-        body {
-          flex-direction: column;
-        }
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
 
-        .menu {
-          width: 100%;
-          height: auto;
-          position: relative;
-          flex-direction: row;
-          justify-content: space-around;
-        }
+  /* Adjust menu */
+  .menu {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
-        .menu a {
-          font-size: 14px;
-          padding: 10px;
-        }
+  .menu a {
+    font-size: 14px;
+    padding: 10px;
+  }
 
-        .content {
-          margin-left: 0;
-          width: 100%;
-          padding: 20px;
-        }
+  .content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
 
-        .profile-img {
-          width: 250px;
-        }
-      }
+  /* Profile image adjustments */
+  .profile-img {
+    width: 200px; /* Reduced size for smaller screens */
+    margin: 0 auto; /* Center the image */
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  /* Adjust text size */
+  .contact-info p {
+    font-size: 14px; /* Smaller text for mobile */
+  }
+
+  /* Ensure correct alignment of text */
+  .greeting {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* Adjust sections to ensure better flow */
+  .section {
+    margin-bottom: 30px;
+  }
+}
     </style>
   </head>
 
