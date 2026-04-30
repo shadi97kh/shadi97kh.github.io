@@ -1,373 +1,216 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Zahra (Shadi) Khodagholi</title>
-    <meta name="author" content="Shadi Khodagholi">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        background-color: #f9f9f9;
-        scroll-behavior: smooth;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Shadi Khodagholi — portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Shadi Khodagholi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
 
-      /* Menu Styling */
-      .menu {
-        width: 18%;
-        background-color: #333;
-        padding: 15px;
-        height: 100vh;
-        position: fixed;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        color: #fff;
-      }
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-      .menu a {
-        display: block;
-        width: 100%;
-        color: #fff;
-        text-decoration: none;
-        padding: 15px 0;
-        margin: 10px 0;
-        text-align: center;
-        font-size: 18px;
-        border: 2px solid transparent;
-        border-radius: 8px;
-        transition: 0.3s ease;
-      }
+  <style>
+    body { font-family: "Instrument Serif", Georgia, serif; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
 
-      .menu a:hover {
-        background-color: #444;
-        border: 2px solid #fff;
-      }
+  <script src="data.js"></script>
+  <script type="text/babel" src="components-base.jsx"></script>
+  <script type="text/babel" src="components-bg.jsx"></script>
+  <script type="text/babel" src="components-hero.jsx"></script>
+  <script type="text/babel" src="components-sections.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
 
-      /* Main Content */
-      .content {
-        margin-left: 22%;
-        padding: 30px;
-        width: 78%;
-        font-size: 16px;
-        text-align: justify;
-      }
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+    const TWEAK_DEFAULTS = {
+      "accent": "#e07a5f",
+      "heroVariant": "big"
+    };
 
-      .section {
-        margin-bottom: 40px;
-      }
+    const ACCENT_PRESETS = [
+      { id: "gold",   label: "gold",   color: "#c9a96a" },
+      { id: "ember",  label: "ember",  color: "#e07a5f" },
+      { id: "moss",   label: "moss",   color: "#9bbf7a" },
+      { id: "ice",    label: "ice",    color: "#7fb3d5" },
+      { id: "violet", label: "violet", color: "#b39ddb" },
+      { id: "rose",   label: "rose",   color: "#e0789b" },
+    ];
 
-      h2 {
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 10px;
-        font-size: 20px;
-        font-weight: normal;
-      }
+    const HERO_VARIANTS = [
+      { value: "live",  label: "live"  },
+      { value: "typer", label: "typer" },
+      { value: "big",   label: "big"   },
+    ];
 
-      .profile-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    const NAV = [
+      { id: "home",        label: "home" },
+      { id: "research",    label: "research" },
+      { id: "education",   label: "education" },
+      { id: "papers",      label: "papers" },
+      { id: "experience",  label: "experience" },
+      { id: "projects",    label: "projects" },
+      { id: "off-screen",  label: "off-screen" },
+    ];
 
-      .profile-img {
-        border-radius: 50%;
-        width: 350px;
-        margin-left: 30px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
+    function App() {
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const [active, setActive] = useState("home");
+      const lockRef = useRef({ id: null, until: 0 });
+      const accent = tweaks.accent;
+      const data = window.PORTFOLIO;
 
-      .contact-info {
-        font-size: 16px;
-        max-width: 70%;
-      }
+      useEffect(() => {
+        document.documentElement.style.setProperty("--accent", accent);
+      }, [accent]);
 
-      .greeting {
-        font-size: 24px;
-        font-weight: bold;
-      }
+      useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          if (Date.now() < lockRef.current.until) return;
+          entries.forEach((e) => {
+            if (e.isIntersecting) setActive(e.target.id);
+          });
+        }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+        NAV.forEach(s => {
+          const el = document.getElementById(s.id);
+          if (el) observer.observe(el);
+        });
+        return () => observer.disconnect();
+      }, []);
 
-      .education-img {
-        width: 60px;
-        height: 60px;
-        margin-right: 20px;
-        object-fit: contain;
-        float: left;
-      }
+      const handleNavClick = (e, id) => {
+        e.preventDefault();
+        const el = document.getElementById(id);
+        if (!el) return;
+        lockRef.current = { id, until: Date.now() + 1200 };
+        setActive(id);
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", "#" + id);
+      };
 
-      .education-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-
-      ul li {
-        margin-bottom: 20px;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Icon Styling */
-      .contact-thumbnails a {
-        position: relative;
-        display: inline-block;
-        margin-right: 15px;
-      }
-
-      /* Tooltip Styling */
-      .contact-thumbnails a:hover::after {
-        content: attr(data-title);
-        position: absolute;
-        bottom: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        color: #fff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 14px;
-        white-space: nowrap;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        opacity: 1;
-        pointer-events: none;
-        z-index: 10;
-        transition: opacity 0.3s ease;
-      }
-
-      /* Tooltip hidden state */
-      .contact-thumbnails a::after {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      /* Show tooltip on hover */
-      .contact-thumbnails a:hover::after {
-        opacity: 1;
-      }
-
-      /* Responsive Layout for smaller screens */
-@media screen and (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-
-  /* Adjust menu */
-  .menu {
-    width: 100%;
-    height: auto;
-    position: relative;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .menu a {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .content {
-    margin-left: 0;
-    width: 100%;
-    padding: 20px;
-  }
-
-  /* Profile image adjustments */
-  .profile-img {
-    width: 200px; /* Reduced size for smaller screens */
-    margin: 0 auto; /* Center the image */
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  /* Adjust text size */
-  .contact-info p {
-    font-size: 14px; /* Smaller text for mobile */
-  }
-
-  /* Ensure correct alignment of text */
-  .greeting {
-    font-size: 18px;
-    text-align: center;
-  }
-
-  /* Adjust sections to ensure better flow */
-  .section {
-    margin-bottom: 30px;
-  }
-}
-    </style>
-  </head>
-
-  <body>
-    <!-- Jekyll-based Menu -->
-    <div class="menu">
-      <h2>Menu</h2>
-      <a href="#home"><i class="fas fa-home"></i> Home</a>
-      <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
-      <a href="#papers"><i class="fas fa-file-alt"></i> Papers</a>
-       <a href="#experiences"><i class="fas fa-briefcase"></i> Experiences</a>
-      <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
-      <a href="#hobbies"><i class="fas fa-heart"></i> Hobbies & Interests</a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
-      <!-- Home Section -->
-      <section id="home" class="section">
-        <div class="profile-section">
-          <div class="contact-info">
-            <h1 class="greeting">Hello, This is Shadi Khodagholi!</h1>
-              <p>I am a Ph.D. student in Industrial Engineering at the University of Central Florida, advised by <a href="https://www.cecs.ucf.edu/faculty/niloofar-yousefi/" target="_blank">Dr. Niloofar Yousefi</a>. My research focuses on deep learning for biomedicine, with current work spanning siRNA therapeutic design, saliency-based interpretability, and neuromorphic computing for healthcare. I develop methods that bridge machine learning with biological domain knowledge&mdash;including biology-informed regularization for RNA therapeutics and spatiotemporal models for real-time clinical applications. Previously, I completed my M.S. in Computer Science at UCF and my B.S. in Computer Engineering at Alzahra University in Tehran.</p>
-            <div class="contact-thumbnails">
-              <a href="mailto:zahra.khodagholi@ucf.edu" data-title="Email"><img src="images/email.png" alt="Email" style="width: 40px;"></a>
-              <a href="data/Zahra_PhD_CV.pdf" data-title="Download CV"><img src="images/resume.png" alt="CV" style="width: 40px;"></a>
-              <a href="https://github.com/shadi97kh/" data-title="GitHub"><img src="images/github.png" alt="GitHub" style="width: 40px;"></a>
-              <a href="https://www.linkedin.com/in/shadi97kh/" data-title="LinkedIn"><img src="images/linkedin.png" alt="LinkedIn" style="width: 40px;"></a>
-              <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=DNgvArEAAAAJ" target="_blank" data-title="Google Scholar"><img src="images/google_scholar.png" alt="Google Scholar" style="width: 40px;" /></a>
-              <a href="https://orcid.org/0009-0004-6015-5300" target="_blank" data-title="ORCID ID"><img src="images/ORCID.png" alt="ORCID" style="width: 40px;" /></a>
+      return (
+        <>
+          <BioBackground />
+          <nav className="nav">
+            <div className="nav-inner">
+              <div className="nav-brand">
+                <span className="glyph">z</span>
+                <span>shadi.kh</span>
+                <span className="dim" style={{marginLeft:6}}>· portfolio</span>
+              </div>
+              <div className="nav-links">
+                {NAV.map((s, i) => (
+                  <a key={s.id}
+                     href={"#" + s.id}
+                     onClick={(e) => handleNavClick(e, s.id)}
+                     className={"nav-link " + (active === s.id ? "active" : "")}>
+                    <span className="num">{String(i).padStart(2,"0")}</span>{s.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-          <img src="images/shadi97kh.jpg" alt="Zahra's profile photo" class="profile-img">
-        </div>
-      </section>
+          </nav>
 
-      <!-- Education Section -->
-      <section id="education" class="section">
-        <h2>Education</h2>
-        <div class="education-item">
-          <img src="images/UCF-logo.png" alt="University of Central Florida" class="education-img">
-          <div>
-            <strong>University of Central Florida, Orlando, USA</strong> <br>
-            Ph.D in Industrial Engineering (May 2025 - Present) <br>
-            GPA: 3.77/4.0 (Not Completed)
-          </div>
-        </div>
-        <div class="education-item">
-          <img src="images/UCF-logo.png" alt="University of Central Florida" class="education-img">
-          <div>
-            <strong>University of Central Florida, Orlando, USA</strong> <br>
-            Master in Computer Science (September 2022 - May 2025) <br>
-            GPA: 3.7/4.0
-          </div>
-        </div>
-        <div class="education-item">
-          <img src="images/alzahra-logo.png" alt="Al-Zahra University" class="education-img">
-          <div>
-            <strong>Al-Zahra University, Tehran, Iran</strong> <br>
-            Bachelor of Science in Computer Engineering (September 2016 - August 2020) <br>
-            GPA: 16.18/20.0 <br>
-            Junior/Senior GPA: 17.17/20.0
-          </div>
-        </div>
-      </section>
-
-      <!-- Papers Section -->
-      <section id="papers" class="section">
-        <h2>Papers</h2>
-        <ul>
-          <li><strong>Validating Interpretability in siRNA Efficacy Prediction: A Perturbation-Based, Dataset-Aware Protocol</strong> - Accepted at the 3rd MLGenX Workshop at ICLR 2026
-            <br>Authors: <strong>Zahra Khodagholi</strong> and Niloofar Yousefi
-            <br>Summary: We introduce a perturbation-based faithfulness protocol that validates whether gradient-based saliency maps reliably guide siRNA sequence design. Cross-dataset transfer analysis reveals two novel failure modes&mdash;faithful-but-wrong and inverted saliency&mdash;demonstrating that assay protocol shifts can silently invalidate both predictions and explanations. A biology-informed regularizer (BioPrior) strengthens saliency faithfulness across four benchmarks.
-            <br><a href="https://arxiv.org/abs/2602.10152" target="_blank">arXiv</a> | <a href="https://openreview.net/forum?id=0WStQt1qw5" target="_blank">OpenReview</a> | <a href="https://github.com/shadi97kh/BioPrior" target="_blank">Code</a>
-          </li>
-          <li><strong>ULTRA-AIR: Ultrasound Landmark Tracking for Real-time Anatomical Airway Identification and Reliability Check</strong> - Accepted at IEEE Body Sensor Networks, 2024  
-            <br>Authors: <strong>Zahra Khodagholi</strong>, Jasmine Sun, Nour Awad, Gregory R. Dion, and Laura J. Brattain <br>
-            Summary: This paper presents ULTRA-AIR, a deep learning system for real-time tracking of neck anatomical landmarks to assist with ultrasound-guided airway management. It achieves high accuracy across various classes and computes uncertainty scores to enhance the system's reliability in critical care settings.
-            <br><a href="https://ieeexplore.ieee.org/abstract/document/10780557/" target="_blank">IEEE Xplore</a> | <a href="https://github.com/shadi97kh/ULTRA-AIR" target="_blank">Code</a>
-          </li>
-        </ul>
-      </section>
-
-
-
-      <!-- Experiences Section -->
-<section id="experiences" class="section">
-  <h2>Experiences</h2>
-  <div class="education-item">
-    <img src="images/Brainchip.png" alt="BrainChip Logo" class="education-img">
-    <div>
-      <strong>Machine Learning Solution Architect Intern (June - September 2025), BrainChip, Inc.</strong> <br>
-      Worked on spatio-temporal vision models using BrainChip's proprietary hardware-accelerated TENNs (Temporal Event-based Neural Networks). Evaluated TENNs for efficient object detection and segmentation, optimized for edge AI deployment on Akida neuromorphic processors.
-    </div>
-  </div>
-  <div class="education-item">
-    <img src="images/UCF-logo.png" alt="UCF Logo" class="education-img">
-    <div>
-      <strong>Research Assistant (September 2022 - Present), University of Central Florida</strong> <br>
-      Focused on mammography image analysis using advanced segmentation models to aid in early detection of breast cancer.
-    </div>
-  </div>
-  <div class="education-item">
-    <img src="images/UCF-logo.png" alt="UCF Logo" class="education-img">
-    <div>
-      <strong>Teaching Assistant (August 2023 - December 2024), University of Central Florida</strong> <br>
-      Supported labs and grading for COP3503 (Computer Science II) and CNT4603 (System Administration), ensuring timely feedback and student engagement.
-    </div>
-  </div>
-  <div class="education-item">
-    <img src="images/BU.png" alt="Boston University Logo" class="education-img">
-    <div>
-      <strong>Computer Vision Intern (July - December 2021), Boston University</strong> <br>
-      Developed medical image segmentation tools to detect COVID-19 in pediatric lung scans, enhancing diagnostic automation and precision.
-    </div>
-  </div>
-  <div class="education-item">
-    <img src="images/Toobatech.png" alt="ToobaTech Logo" class="education-img">
-    <div>
-      <strong>Machine Learning Intern (August 2019 - July 2020), ToobaTech, Al-Zahra University AI Lab</strong> <br>
-      Applied ML models such as K-means, Random Forest, and regression on real-world data; contributed to data preprocessing and insights generation.
-    </div>
-  </div>
-</section>
-
-
-      <!-- Projects Section -->
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <ul>
-          <li><strong>Breast Cancer Segmentation (March - May 2024)</strong> - Research at UCF utilizing the UNET architecture and MONAI on the TIGER dataset. The project focuses on improving segmentation accuracy for early detection and treatment of breast cancer. 
-              <a href="https://github.com/shadi97kh/breast-cancer-segmentation" target="_blank">GitHub Link</a>
-          </li>
-
-          <li><strong>Branch Prediction Using CNNs (February - April 2023)</strong> - Designed a branch predictor using Convolutional Neural Networks (CNNs) to enhance prediction accuracy. This project involved implementing traditional branch predictors such as Gshare and bimodal predictors alongside CNN-based architectures for more accurate branch outcomes in computer architecture simulations.
-          </li>
-
-
-          <li><strong>Improvement of the paper Spage2Vec (February - April 2023)</strong> - Under the supervision of Haiyan Hu at UCF, this project aimed to enhance the accuracy of Spage2Vec for detecting spatial gene expression constellations. Adjusting hyperparameters led to a slight improvement in spatial gene expression detection accuracy.
-            <a href="https://github.com/shadi97kh/spage2vec" target="_blank">GitHub Link</a></li>
-
-          <li><strong>Object Detection using ResNet (September 2019 - July 2020)</strong> - Bachelor's thesis project, where the COCO dataset was trained using ResNet architecture. This project developed a pipeline for detecting multiple objects, with a focus on improving accuracy and training speed using pre-trained models. 
-              <a href="https://github.com/shadi97kh/Object-Detection-Using-Retinanet-Pretrained-model-on-COCO-Dataset" target="_blank">GitHub Link</a>
-          </li>
-
-        </ul>
-      </section>
-
-            <!-- Hobbies Section -->
-            <section id="hobbies" class="section">
-              <h2>Hobbies & Interests</h2>
-              <p>When I'm not working, I love to go on long walks, get lost in a good book, or watch beautiful movies. I'm a big fan of Camus's <em>The Stranger</em>, Dostoevsky's <em>The Brothers Karamazov</em>, <em>Crime and Punishment</em>, <em>The Idiot</em>, Kazantzakis's <em>Zorba the Greek</em> and Murakami's <em> Colorless Tsukuru Tazaki</em>.<br>As for movies and series, <em>Ikiru</em> by Kurosawa, <em>Taste of Cherry</em> by Kiarostami and <em>Fleabag</em> have my heart.</p>
-              <p>📚 Feel free to add me on <a href="https://www.goodreads.com/user/show/84959939" target="_blank">Goodreads</a> to see more of my favorite reads! <br>📽️ And you can also follow me on <a href="https://boxd.it/4oQWr" target="_blank">Letterboxd</a> to check out my favorite films!</p>
+          <main className="page">
+            <section id="home" className="section" style={{paddingTop: 0, paddingBottom: 16, borderTop: "none"}}>
+              <Hero variant={tweaks.heroVariant} data={data} accent={accent} />
             </section>
-      
-            <!-- Footer with ClustrMaps -->
-            <footer style="text-align: center; margin-top: 20px;">
-              <a href="https://clustrmaps.com/site/1c40n" title="ClustrMaps">
-                <img src="//www.clustrmaps.com/map_v2.png?d=4nC53EvNgQgkPxPpXS9QSLjaAysCE6Tr_NpTzzK_X98&cl=ffffff" />
-              </a>
+
+            <section id="research" className="section">
+              <SectionHead num="01" title="Research focus" subtitle="threads I'm pulling on right now" accent={accent} />
+              <div className="proj-grid" style={{gridTemplateColumns:"1fr 1fr"}}>
+                {data.research_areas.map((r, i) => (
+                  <div key={i} className="proj-card" style={{cursor:"default"}}>
+                    <div className="proj-num mono" style={{color: accent}}>area · {String(i+1).padStart(2,"0")}</div>
+                    <div className="proj-title">{r.tag}</div>
+                    <p className="proj-detail" style={{marginTop:8}}>{r.note}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section id="education" className="section">
+              <SectionHead num="02" title="Education" accent={accent} />
+              <Education items={data.education} accent={accent} />
+            </section>
+
+            <section id="papers" className="section">
+              <SectionHead num="03" title="Papers" subtitle={`${data.papers.length} entries · click a tab to switch view`} accent={accent} />
+              <div className="paper-grid">
+                {data.papers.map((p) => <PaperCard key={p.id} paper={p} accent={accent} />)}
+              </div>
+            </section>
+
+            <section id="experience" className="section">
+              <SectionHead num="04" title="Experience" subtitle="research, eng, teaching" accent={accent} />
+              <Experience items={data.experience} accent={accent} />
+            </section>
+
+            <section id="projects" className="section">
+              <SectionHead num="05" title="Side projects" subtitle="coursework + things I built to learn" accent={accent} />
+              <Projects items={data.projects} accent={accent} />
+            </section>
+
+            <section id="off-screen" className="section">
+              <SectionHead num="06" title="Off‑screen" subtitle="when the laptop is closed" accent={accent} />
+              <Offscreen data={data} accent={accent} />
+            </section>
+
+            <footer className="foot">
+              <div>
+                <span className="dim">© 2026 · </span>
+                {data.name} ·{" "}
+                <a href={"mailto:" + data.links.email}>{data.links.email}</a>
+              </div>
+              <div className="dim">
+                built in html · last commit{" "}
+                <span style={{color: accent}}>{(new Date()).toISOString().slice(0,10)}</span>
+              </div>
             </footer>
-  </body>
+          </main>
+
+          <TweaksPanel title="Tweaks" defaultPosition={{ right: 20, bottom: 20 }}>
+            <TweakSection label="Accent">
+              <TweakColor
+                label="Color"
+                value={tweaks.accent}
+                onChange={(v) => setTweak("accent", v)}
+              />
+              <div style={{display:"flex", flexWrap:"wrap", gap:6, marginTop:6}}>
+                {ACCENT_PRESETS.map(p => (
+                  <button key={p.id}
+                          onClick={() => setTweak("accent", p.color)}
+                          title={p.label}
+                          style={{
+                            width: 26, height: 26, borderRadius: 4,
+                            border: tweaks.accent.toLowerCase() === p.color.toLowerCase()
+                              ? "2px solid #fff" : "1px solid #444",
+                            background: p.color, cursor: "pointer", padding: 0,
+                          }}/>
+                ))}
+              </div>
+            </TweakSection>
+            <TweakSection label="Hero variant">
+              <TweakRadio
+                label="Variant"
+                value={tweaks.heroVariant}
+                onChange={(v) => setTweak("heroVariant", v)}
+                options={HERO_VARIANTS}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
 </html>
