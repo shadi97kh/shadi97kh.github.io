@@ -181,41 +181,36 @@ const Offscreen = ({ data, accent }) => {
         If we share a favorite (or you want to argue about one), I&rsquo;d love to hear it.
       </p>
       <div className="off-grid">
-        {/* Bookshelf */}
+        {/* Bookshelf — laid flat, scattered */}
         <div className="off-pane">
           <div className="off-pane-head mono">
             <span className="off-pane-num" style={{color: accent}}>§ a</span>
             <span className="off-pane-title">favorites on the shelf</span>
-            <span className="dim off-pane-meta">{books.length} spines</span>
+            <span className="dim off-pane-meta">{books.length} of many</span>
           </div>
-          <div className="bookshelf">
-            <div className="shelf-board" />
-            <div className="spines">
-              {books.map((b, i) => {
-                // small per-book variation so it feels like a real shelf
-                const heights = [200, 290, 290, 220, 250, 290];
-                const widths  = [44, 38, 46, 40, 44, 38];
-                const tilts   = [0, 0, 0, -1.5, 0, 0];
-                return (
-                  <div key={i} className="spine"
-                       style={{
-                         background: b.color,
-                         height: heights[i % heights.length],
-                         width: widths[i % widths.length],
-                         transform: `rotate(${tilts[i % tilts.length]}deg)`,
-                       }}>
-                    <div className="spine-text">
-                      <span className="spine-title">{b.title}</span>
-                      <span className="spine-author">{b.author}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="books-stack">
+            {books.map((b, i) => {
+              // small per-book width variance so the pile looks real
+              const widths  = [86, 94, 80, 90, 84, 88]; // %
+              const offsets = [0, -3, 4, -2, 2, -1];    // px horizontal nudge
+              const tilts   = [-0.6, 0.4, -0.3, 0.7, -0.2, 0.5];
+              return (
+                <div key={i} className="book-h"
+                     style={{
+                       background: b.color,
+                       width: widths[i % widths.length] + "%",
+                       marginLeft: offsets[i % offsets.length] + "px",
+                       transform: `rotate(${tilts[i % tilts.length]}deg)`,
+                     }}>
+                  <span className="book-h-title">{b.title}</span>
+                  <span className="book-h-author">{b.author}</span>
+                </div>
+              );
+            })}
           </div>
           <a href={data.links.goodreads} target="_blank" rel="noreferrer"
              className="off-pane-link mono" style={{color: accent}}>
-            goodreads &rarr;
+            full shelf on goodreads &rarr;
           </a>
         </div>
 
