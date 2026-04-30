@@ -185,7 +185,7 @@ const Offscreen = ({ data, accent }) => {
         <div className="off-pane">
           <div className="off-pane-head mono">
             <span className="off-pane-num" style={{color: accent}}>§ a</span>
-            <span className="off-pane-title">on the shelf</span>
+            <span className="off-pane-title">favorites on the shelf</span>
             <span className="dim off-pane-meta">{books.length} spines</span>
           </div>
           <div className="bookshelf">
@@ -223,7 +223,7 @@ const Offscreen = ({ data, accent }) => {
         <div className="off-pane">
           <div className="off-pane-head mono">
             <span className="off-pane-num" style={{color: accent}}>§ b</span>
-            <span className="off-pane-title">on the screen</span>
+            <span className="off-pane-title">favorites on the screen</span>
             <span className="dim off-pane-meta">{watching.length} entries</span>
           </div>
           <div className="filmreel">

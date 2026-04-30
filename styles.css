@@ -494,8 +494,8 @@ a { color: inherit; }
 
 /* ─────────────────────── Off-screen ─────────────────────── */
 .off-wrap { display: flex; flex-direction: column; gap: 28px; }
-.off-intro { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 780px; margin: 0; font-style: italic; }
-.off-intro a { font-style: normal; text-decoration: none; border-bottom: 1px dotted currentColor; padding-bottom: 1px; }
+.off-intro { font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--ink-2); max-width: 780px; margin: 0; font-style: normal; }
+.off-intro a { text-decoration: none; border-bottom: 1px dotted currentColor; padding-bottom: 1px; }
 .off-intro a:hover { border-bottom-style: solid; }
 .off-grid {
   display: grid;
