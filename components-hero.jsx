@@ -25,6 +25,9 @@ const HeroLive = ({ data, accent }) => {
   return (
     <div className="hero hero-live">
       <div className="hero-stack">
+        {data.photo && (
+          <img src={data.photo} alt={data.name} className="hero-portrait" style={{borderColor: `${accent}55`}} />
+        )}
         <div className="status-line">
           <span className="status-dot" style={{ background: accent }} />
           <span className="mono dim">orlando · {dateStr}</span>
@@ -66,6 +69,9 @@ const HeroLive = ({ data, accent }) => {
 const HeroBig = ({ data, accent }) => (
   <div className="hero hero-big">
     <div className="big-stack">
+      {data.photo && (
+        <img src={data.photo} alt={data.name} className="hero-portrait" style={{borderColor: `${accent}55`}} />
+      )}
       <h1 className="display huge">Shadi<br/><span style={{color: accent}}>Khodagholi</span><span className="huge-paren"> (Zahra)</span></h1>
       <p className="huge-line">A computer engineer who took a wrong turn into biology &mdash; and stayed. <span className="dim">PhD at UCF. Today: siRNA, saliency, and graph neural nets &mdash; with a growing pull toward neuroscience.</span></p>
       <p className="huge-bio">{data.bio}</p>
