@@ -2,7 +2,6 @@
 window.PORTFOLIO = {
   name: "Zahra (Shadi) Khodagholi",
   handle: "shadi97kh",
-  photo: "images/shadi97kh.jpg",
   role: "PhD student, Industrial Engineering — University of Central Florida",
   advisor: { name: "Dr. Niloofar Yousefi", url: "https://www.cecs.ucf.edu/faculty/niloofar-yousefi/" },
   location: "Orlando, FL",

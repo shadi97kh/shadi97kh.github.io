@@ -23,8 +23,7 @@ const HeroLive = ({ data, accent }) => {
   const dateStr = (new Date()).toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" }).toLowerCase();
 
   return (
-    <div className="hero hero-live with-portrait">
-      <Portrait accent={accent} />
+    <div className="hero hero-live">
       <div className="hero-stack">
         <div className="status-line">
           <span className="status-dot" style={{ background: accent }} />
@@ -65,8 +64,7 @@ const HeroLive = ({ data, accent }) => {
 };
 
 const HeroBig = ({ data, accent }) => (
-  <div className="hero hero-big with-portrait">
-    <Portrait accent={accent} />
+  <div className="hero hero-big">
     <div className="big-stack">
       <h1 className="display huge">Shadi<br/><span style={{color: accent}}>Khodagholi</span><span className="huge-paren"> (Zahra)</span></h1>
       <p className="huge-line">A computer engineer who took a wrong turn into biology &mdash; and stayed. <span className="dim">PhD at UCF. Today: siRNA, saliency, and graph neural nets &mdash; with a growing pull toward neuroscience.</span></p>
@@ -97,8 +95,7 @@ const HeroCycler = ({ data, accent }) => {
   }, []);
   const cur = phrases[i];
   return (
-    <div className="hero hero-cycler with-portrait">
-      <Portrait accent={accent} />
+    <div className="hero hero-cycler">
       <div className="hero-stack">
         <div className="status-line">
           <span className="status-dot" style={{ background: accent }}/>
@@ -125,22 +122,6 @@ const HeroCycler = ({ data, accent }) => {
     </div>
   );
 };
-
-// Polaroid-ish portrait — small, slightly tilted, with a tape strip and a
-// scribbled caption. Sits to the right of the hero text.
-const Portrait = ({ accent }) => (
-  <figure className="portrait" aria-label="photo of Shadi">
-    <span className="portrait-tape" aria-hidden="true" />
-    <div className="portrait-frame">
-      <img src="images/shadi97kh.jpg" alt="Shadi Khodagholi" />
-      <div className="portrait-grain" aria-hidden="true" />
-    </div>
-    <figcaption className="portrait-cap">
-      <span className="portrait-cap-mark" style={{ color: accent }}>×</span>
-      <span className="portrait-cap-text">hi &mdash; orlando, fl</span>
-    </figcaption>
-  </figure>
-);
 
 const HeroLinks = ({ data }) => (
   <div className="hero-links">
