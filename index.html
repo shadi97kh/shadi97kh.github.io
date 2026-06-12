@@ -51,14 +51,83 @@
     ];
 
     const NAV = [
-      { id: "home",        label: "home" },
-      { id: "research",    label: "research" },
-      { id: "education",   label: "education" },
-      { id: "papers",      label: "papers" },
-      { id: "experience",  label: "experience" },
-      { id: "projects",    label: "projects" },
-      { id: "off-screen",  label: "off-screen" },
+      { id: "home",        label: "home",       hue: "accent" },
+      { id: "research",    label: "research",   hue: "#86efac" },
+      { id: "education",   label: "education",  hue: "#93c5fd" },
+      { id: "papers",      label: "papers",     hue: "#fcd34d" },
+      { id: "experience",  label: "experience", hue: "#fda4af" },
+      { id: "projects",    label: "projects",   hue: "#d8b4fe" },
+      { id: "off-screen",  label: "off-screen", hue: "#f0abfc" },
     ];
+
+    // ── Thin scroll-progress bar pinned to the very top of the viewport.
+    function ScrollProgress({ accent }) {
+      const [p, setP] = useState(0);
+      useEffect(() => {
+        let raf = 0;
+        const onScroll = () => {
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            raf = 0;
+            const h = document.documentElement;
+            const max = h.scrollHeight - h.clientHeight;
+            setP(max > 0 ? h.scrollTop / max : 0);
+          });
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+      return (
+        <div className="scroll-progress" aria-hidden="true">
+          <span className="scroll-progress-fill"
+                style={{ transform: `scaleX(${p})`, background: accent }} />
+        </div>
+      );
+    }
+
+    // ── Floating mini-map of the page outline. One hued pip per section; the
+    //    active one expands and reveals its label. Click to jump.
+    function SectionRail({ items, active, accent, onJump }) {
+      return (
+        <nav className="rail" aria-label="page outline">
+          {items.map((s, i) => {
+            const c = s.hue === "accent" ? accent : s.hue;
+            const on = active === s.id;
+            return (
+              <button key={s.id}
+                      className={"rail-item" + (on ? " active" : "")}
+                      style={{ "--dot-c": c }}
+                      aria-label={s.label}
+                      aria-current={on ? "true" : undefined}
+                      onClick={() => onJump(s.id)}>
+                <span className="rail-label mono">{String(i).padStart(2,"0")} {s.label}</span>
+                <span className="rail-pip" />
+              </button>
+            );
+          })}
+        </nav>
+      );
+    }
+
+    // ── A soft glow that trails the cursor — gives the dark page some life.
+    function CursorGlow({ accent }) {
+      const ref = useRef(null);
+      useEffect(() => {
+        let raf = 0, tx = -999, ty = -999, x = -999, y = -999;
+        const onMove = (e) => { tx = e.clientX; ty = e.clientY; if (!raf) raf = requestAnimationFrame(tick); };
+        const tick = () => {
+          raf = 0;
+          x += (tx - x) * 0.16; y += (ty - y) * 0.16;
+          if (ref.current) ref.current.style.transform = `translate(${x}px, ${y}px)`;
+          if (Math.abs(tx - x) > 0.5 || Math.abs(ty - y) > 0.5) raf = requestAnimationFrame(tick);
+        };
+        window.addEventListener("pointermove", onMove, { passive: true });
+        return () => window.removeEventListener("pointermove", onMove);
+      }, []);
+      return <div ref={ref} className="cursor-glow" aria-hidden="true"
+                  style={{ background: `radial-gradient(circle, ${accent}22, transparent 60%)` }} />;
+    }
 
     function App() {
       const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
