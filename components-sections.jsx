@@ -66,9 +66,7 @@ const PaperCard = ({ paper, accent }) => {
           <div className="figure-wrap">
             <PaperFigure kind={paper.figure} accent={accent} />
             <div className="figure-cap mono dim">
-              fig. — {paper.figure === "bioprior"
-                ? "Per-position saliency over an siRNA antisense strand. BioPrior (dashed) tracks the seed region; vanilla saliency drifts."
-                : "Live ultrasound frame with predicted neck landmarks and per-class uncertainty σ."}
+              fig. — {paper.figureCap}
             </div>
           </div>
         )}

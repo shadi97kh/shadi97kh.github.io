@@ -30,6 +30,52 @@ const Icon = ({ name, size = 16 }) => {
 // PaperFigure — inline SVG illustrations for each paper
 // ────────────────────────────────────────────────────────────────────
 const PaperFigure = ({ kind, accent }) => {
+  if (kind === "sirna-review") {
+    // two decades of siRNA design methods — capability curve over eras, with the data gap underneath
+    const eras = [
+      { x:  70, y: 128, year: "2004", l1: "empirical",   l2: "scoring rules" },
+      { x: 185, y: 112, year: "2012", l1: "classical",   l2: "ML (SVM/RF)" },
+      { x: 300, y:  92, year: "2018", l1: "deep",        l2: "sequence nets" },
+      { x: 415, y:  70, year: "2022", l1: "GNNs +",      l2: "transformers" },
+      { x: 530, y:  48, year: "2026", l1: "RNA",         l2: "foundation models" },
+    ];
+    const curve = "M40 138 C 110 134, 130 116, 185 112 S 250 98, 300 92 S 370 76, 415 70 S 480 54, 560 44";
+    return (
+      <svg viewBox="0 0 600 220" className="paper-fig" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="revfill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"  stopColor={accent} stopOpacity="0.22"/>
+            <stop offset="100%" stopColor={accent} stopOpacity="0"/>
+          </linearGradient>
+        </defs>
+        {/* capability area + curve */}
+        <path d={curve + " L560 150 L40 150 Z"} fill="url(#revfill)"/>
+        <path d={curve} stroke={accent} strokeWidth="1.6" fill="none"/>
+        <text x="40" y="34" fontFamily="var(--mono)" fontSize="10" fill="var(--ink-3)">learned representation ↑</text>
+        {/* era nodes */}
+        {eras.map((e, i) => (
+          <g key={i}>
+            <line x1={e.x} y1={e.y} x2={e.x} y2={150} stroke="var(--ink-4)" strokeWidth="0.6" strokeDasharray="2 3"/>
+            <circle cx={e.x} cy={e.y} r="4" fill="var(--bg-1)" stroke={accent} strokeWidth="1.6"/>
+            <text x={e.x} y={e.y - 22} textAnchor="middle" fontFamily="var(--mono)" fontSize="9" fill="var(--ink-2)">{e.l1}</text>
+            <text x={e.x} y={e.y - 12} textAnchor="middle" fontFamily="var(--mono)" fontSize="9" fill="var(--ink-2)">{e.l2}</text>
+            <text x={e.x} y={163} textAnchor="middle" fontFamily="var(--mono)" fontSize="9" fill={accent}>{e.year}</text>
+          </g>
+        ))}
+        {/* timeline axis */}
+        <line x1="40" y1="150" x2="560" y2="150" stroke="var(--ink-4)" strokeWidth="0.8"/>
+        {/* the data gap: what benchmarks contain vs what therapeutics use */}
+        <g>
+          <rect x="40" y="180" width="380" height="8" fill={accent} opacity="0.45"/>
+          <rect x="40" y="196" width="62"  height="8" fill={accent} opacity="0.45"/>
+          <rect x="102" y="196" width="318" height="8" fill="none" stroke="var(--ink-4)" strokeWidth="0.7" strokeDasharray="3 3"/>
+          <text x="428" y="187" fontFamily="var(--mono)" fontSize="9" fill="var(--ink-3)">unmodified siRNA</text>
+          <text x="428" y="203" fontFamily="var(--mono)" fontSize="9" fill="var(--ink-3)">modified (clinical)</text>
+        </g>
+        <text x="40" y="174" fontFamily="var(--mono)" fontSize="9" fill="var(--ink-3)">public efficacy data</text>
+      </svg>
+    );
+  }
   if (kind === "bioprior") {
     // siRNA sequence with saliency heatmap
     const bases = "GUCAGGUACUGCUACAGGCAUUGCAUACUGCAGAUCG".split("");

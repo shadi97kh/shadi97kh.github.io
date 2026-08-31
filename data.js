@@ -35,6 +35,22 @@ window.PORTFOLIO = {
   ],
   papers: [
     {
+      id: "sirna-review",
+      title: "From Rules to Foundation Models: A Comprehensive Review of Machine Learning Approaches for siRNA Design",
+      subtitle: "Survey · 40+ studies across two decades of siRNA efficacy and off-target modeling",
+      venue: "NAR Genomics and Bioinformatics",
+      year: "2026",
+      authors: ["Zahra Khodagholi", "Niloofar Yousefi"],
+      tldr: "Twenty years of siRNA design methods in one map — from empirical scoring rules to RNA foundation models. Hybrid thermodynamic + learned models lead, leakage-aware splits expose inflated benchmarks, and the modified-siRNA data that therapeutics actually use is still missing.",
+      abstract: "Small interfering RNAs (siRNAs) are a therapeutically validated modality with eight FDA-approved drugs, yet designing effective siRNAs remains computationally hard because efficacy depends on sequence composition, thermodynamic properties, target-site accessibility, and off-target interactions. Over twenty years, computational strategies have progressed from empirical heuristics to deep learning systems that integrate physical priors with learned representations. This survey examines the full methodological spectrum: classical scoring rules, pretrained RNA foundation models, transformer-based efficacy predictors, graph neural networks encoding siRNA/mRNA interaction topology, off-target prediction frameworks, and chemical-modification-aware systems. Across more than 40 studies, convergent findings emerge — hybrid models combining thermodynamic features with learned representations perform strongly (though largely on single-model ablations); graph neural networks with leakage-aware data splitting address pervasive benchmark inflation; and off-target prediction has matured through empirical RNA-seq frameworks and structure-based features. We distinguish chemically unmodified siRNAs, which dominate public benchmarks, from the fully modified siRNAs used therapeutically, whose efficacy data remain scarce. The review provides method taxonomies, performance comparisons, benchmark dataset descriptions, code availability, biology-informed interpretability analysis with formal saliency validation protocols, and actionable recommendations. Gaps in uncertainty quantification, active learning, and prospective experimental validation are highlighted as priorities for clinical translation.",
+      figure: "sirna-review",
+      figureCap: "Two decades of siRNA design methods, from empirical scoring rules through hybrid thermodynamic models to pretrained RNA foundation models — with the modified-siRNA data gap running underneath.",
+      links: [
+        { label: "NAR Genom. Bioinform.", href: "https://academic.oup.com/nargab/article/8/3/lqag099/8776214" },
+        { label: "DOI",                   href: "https://doi.org/10.1093/nargab/lqag099" },
+      ],
+    },
+    {
       id: "bioprior",
       title: "Validating Interpretability in siRNA Efficacy Prediction",
       subtitle: "A Perturbation-Based, Dataset-Aware Protocol",
@@ -44,6 +60,7 @@ window.PORTFOLIO = {
       tldr: "Saliency maps for siRNA models can be faithful but wrong, or even inverted, when datasets shift. We introduce a perturbation protocol that catches this — and a biology-informed regularizer (BioPrior) that fixes it across four benchmarks.",
       abstract: "Gradient-based saliency is widely used to guide siRNA sequence design, but its reliability under distribution shift is rarely tested. We propose a perturbation-based faithfulness protocol and run it across four siRNA efficacy benchmarks. Cross-dataset transfer reveals two novel failure modes — faithful-but-wrong saliency and inverted saliency — showing that assay-protocol shifts can silently invalidate both predictions and their explanations. We then introduce BioPrior, a biology-informed regularizer that strengthens saliency faithfulness without hurting predictive accuracy.",
       figure: "bioprior",
+      figureCap: "Per-position saliency over an siRNA antisense strand. BioPrior (dashed) tracks the seed region; vanilla saliency drifts.",
       links: [
         { label: "arXiv",      href: "https://arxiv.org/abs/2602.10152" },
         { label: "OpenReview", href: "https://openreview.net/forum?id=0WStQt1qw5" },
@@ -60,6 +77,7 @@ window.PORTFOLIO = {
       tldr: "A deep-learning system that tracks neck landmarks live on ultrasound to assist airway management, with per-frame uncertainty so clinicians know when to trust it.",
       abstract: "ULTRA-AIR is a real-time deep-learning system for tracking anatomical landmarks of the neck on ultrasound video to assist with ultrasound-guided airway management. The model achieves high accuracy across landmark classes and computes per-frame uncertainty scores so the system can flag low-confidence predictions in critical-care settings.",
       figure: "ultra-air",
+      figureCap: "Live ultrasound frame with predicted neck landmarks and per-class uncertainty σ.",
       links: [
         { label: "IEEE Xplore", href: "https://ieeexplore.ieee.org/abstract/document/10780557/" },
         { label: "code",        href: "https://github.com/shadi97kh/ULTRA-AIR" },
