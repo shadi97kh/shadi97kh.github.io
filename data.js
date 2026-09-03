@@ -14,7 +14,7 @@ window.PORTFOLIO = {
   ],
   links: {
     email: "zahra.khodagholi@ucf.edu",
-    cv: "data/Zahra_PhD_CV.pdf",
+    cv: "data/Zahra_khodagholi_resume.pdf",
     github: "https://github.com/shadi97kh/",
     linkedin: "https://www.linkedin.com/in/shadi97kh/",
     scholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&user=DNgvArEAAAAJ",
